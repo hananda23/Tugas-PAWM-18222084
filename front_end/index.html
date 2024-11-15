@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="width=device-width, initial-scale=1.0">
+    <title>Electri Worlds</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Koneksi ke file CSS -->
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1 class="header-title">Electric Worlds</h1>
+        <nav class="navigation">
+            <ul class="nav-list" style="list-style-type: none;">
+                <li class="nav-item" id="userAuth">
+                    <a href="login.html" class="nav-link" id="authLink" target="_blank">Login</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Section -->
+    <main class="main-content">
+        <!-- Simulasi Section -->
+        <section id="simulation-area" class="simulation-section">
+            <canvas id="simulationCanvas" class="canvas-element" width="800" height="600"></canvas>
+        </section>
+
+        <!-- Sidebar untuk pengaturan, kontrol, dan history -->
+        <aside class="sidebar">
+            <h2 class="sidebar-title">Pengaturan Simulasi</h2>
+            <form class="simulation-settings">
+                <label for="chargeValue">Muatan (Coulomb):</label>
+                <input type="number" id="chargeValue" class="input-field" step="0.1" placeholder="Masukkan nilai">
+                
+                <label for="fieldStrength">Kekuatan Medan Listrik:</label>
+                <input type="number" id="fieldStrength" class="input-field" step="0.1" placeholder="Masukkan nilai">
+                
+                <label for="magneticFieldStrength">Kekuatan Medan Magnet:</label>
+                <input type="number" id="magneticFieldStrength" class="input-field" step="0.1" placeholder="Masukkan nilai">
+                
+                <button type="submit" class="submit-button">Simpan Pengaturan</button>
+            </form>
+
+            <!-- Kontrol simulasi -->
+            <div class="controls">
+                <h3 class="controls-title">Kontrol Simulasi</h3>
+                <button class="control-button" id="pauseSimulation">Jeda Simulasi</button>
+                <button class="control-button" id="resetSimulation">Reset</button>
+                <button class="control-button" id="undoAction">Undo</button>
+                <button class="control-button" id="redoAction">Redo</button>
+            </div>
+
+            <!-- History Section -->
+            <div class="history-section">
+                <h3 class="history-title">History Aksi</h3>
+                <ul id="historyList" class="history-list"></ul>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; Ananda Farhan Raihandra</p>
+    </footer>
+
+    <script src="script.js"></script> <!-- Koneksi ke file JavaScript -->
+</body>
+</html>
