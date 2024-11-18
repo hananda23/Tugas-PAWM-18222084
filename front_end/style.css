@@ -1,191 +1,117 @@
-/* Gaya umum untuk halaman */
 body {
-    font-family: Arial, sans-serif;
+    font-family: monospace;
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     height: 100vh;
 }
 
-.header {
-    background-color: #0044cc;
-    color: #ffffff;
-    padding: 15px;
-    text-align: center;
+ul{
+    list-style: none;
 }
 
-.header-title {
-    margin: 0;
-}
-
-.navigation {
-    margin-top: 10px;
-}
-
-.nav-link {
-    color: #ffffff;
-    text-decoration: none;
-    padding: 5px 10px;
-}
-
-.main-content {
-    display: flex;
-    flex-grow: 1;
-}
-
-.simulation-section {
-    flex: 3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-right: 2px solid #ddd;
-}
-
-.canvas-element {
-    border: 2px solid #000;
-    background-color: #f5f5f5;
-}
-
-.sidebar {
-    flex: 1;
-    padding: 15px;
-    background-color: #f0f0f0;
-    border-left: 2px solid #ddd;
-}
-
-.sidebar-title, .controls-title, .history-title {
-    margin-bottom: 10px;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.simulation-settings {
-    margin-bottom: 20px;
-}
-
-.input-field {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.submit-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #0044cc;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.submit-button:hover {
-    background-color: #003399;
-}
-
-.controls {
-    margin-bottom: 20px;
-}
-
-.control-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #28a745;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.control-button:hover {
-    background-color: #218838;
-}
-
-.history-section {
-    background-color: #ffffff;
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-}
-
-.history-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    max-height: 150px;
+aside{
     overflow-y: auto;
 }
 
-.history-list li {
-    padding: 5px;
-    border-bottom: 1px solid #ddd;
-    font-size: 14px;
-}
+.big-box-section{
 
-.footer {
-    background-color: #0044cc;
-    color: #ffffff;
-    text-align: center;
     padding: 10px;
-    font-size: 14px;
+    margin: 10px;
+    border: 1px solid;
 }
 
-.login-section {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+.small-box-section{
+
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid;
 }
 
-.login-form {
+.simulation-section{
+    flex: 3;
     display: flex;
-    flex-direction: column;
+    width: 70%;
 }
 
-.form-title {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 24px;
+.simulation-canvas{
+    background-color: whitesmoke;
+    width: 100%;
+    height: 100%;
 }
 
-.input-field {
-    margin-bottom: 15px;
+.main-section{
+    flex: 1;
+    padding: 0;
+    background-color: white;
+    border: 1px solid;
+    width: 30%;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border-bottom: 1px solid;
+    position: sticky;
+    top: 0;
+    background-color: white;
 }
 
-.submit-button {
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 10px;
-    background-color: #0044cc;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    border-top: 1px solid;
+    background-color: white;
 }
 
-.submit-button:hover {
-    background-color: #003399;
+.nav-item{
+    float: left;
+    margin: 0;
+    padding: 0;
+
 }
 
-.form-footer {
+.nav-link{
+    display: block;
+    padding: 10px;
     text-align: center;
-    margin-top: 15px;
-}
-
-.form-footer a {
-    color: #0044cc;
     text-decoration: none;
 }
 
-.form-footer a:hover {
-    text-decoration: underline;
+#history-list{
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+#historyList{
+    padding: 0;
+    margin: 0;
+}
+
+#historyList li{
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid;
+}
+
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    body{
+        flex-direction: column;
+    }
+    
+    .simulation-section {
+        width: 100%;
+    }
+
+    .main-section {
+        width: 100%;
+    }
+    
 }

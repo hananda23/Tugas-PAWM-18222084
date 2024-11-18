@@ -1,69 +1,106 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="width=device-width, initial-scale=1.0">
-    <title>Electri Worlds</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Koneksi ke file CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electric Worlds</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <h1 class="header-title">Electric Worlds</h1>
-        <nav class="navigation">
-            <ul class="nav-list" style="list-style-type: none;">
-                <li class="nav-item" id="userAuth">
-                    <a href="login.html" class="nav-link" id="authLink" target="_blank">Login</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Main Section -->
-    <main class="main-content">
-        <!-- Simulasi Section -->
-        <section id="simulation-area" class="simulation-section">
-            <canvas id="simulationCanvas" class="canvas-element" width="800" height="600"></canvas>
+<body>
+    <aside class="main-section">
+        <!--header-->
+        <header class="big-box-section">
+            <h1 class="title" id="header-title">Electric Worlds</h1>
+            <nav class="main navigation">
+                <ul class="nav-list">
+                    <li class="nav-item" id="userAuth">
+                        <a href="javascript:window.open('login.html', 'newwindow', 'width=800,height=auto')" class="nav-link" id="authLink">Login</a>
+                    </li>
+                    <li class="nav-item" id="userSignUp">
+                        <a href="javascript:window.open('signup.html', 'newwindow', 'width=800,height=auto')" class="nav-link" id="signupLink" target="_top">Daftar</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!--ini main content-->
+        <section class="big-box-section" id="main-content">
+
+            <p class="description" id="main-description">Website untuk melakukan simulasi dasar dari hukum coulomb, medan magnet, dan medan Listrik
+
+            </p>
+
+            <!--Canvas yang berisi elemen yang dapat dimasukkan-->
+            <section class="big-box-section" id="canvas-section">
+                <h2 class="title" id="canvas-title">Objek Simulasi</h2>
+                <canvas class="simulation-object"></canvas>
+            </section>
+
+            <!--ini setting section buat memanipulasi simulasi-->
+            <section class="big-box-section" id="setting-section">
+                <!-- setting untuk mengubah objek simulasi-->
+                <h2 class="title" id="setting-title">Pengaturan Simulasi</h2>
+                <form class="small-box-section" id="charge-form">
+                    <label for="chargeValue">Muatan:</label>
+                    <input type="number" id="chargeValue" min="0" step="0.1">
+                    <select id="sizeValue">
+                        <option value="coulomb" selected>C</option>
+                        <option value="microCoulomb">nC</option>
+                        <option value="nanoCoulomb">nC</option>
+                    </select>
+                    <label for="x_posCharge">X</label>
+                    <input type="number" id="x_posCharge">
+                    <label for="y_posCharge">Y</label>
+                    <input type="number" id="y_posCharge">
+                </form>
+                <!--setting untuk mengubah tampilan dan hasil simulasi-->
+                <form class="small-box-section" id="simulatiomResults">
+                    <label for="vectorForces">Hukum Coulomb</label>
+                    <input type="checkbox" id="vectorForces">
+                    <label for="vectorForces1">Hukum Coulomb</label>
+                    <input type="checkbox" id="vectorForces1">
+                    <label for="vectorForces2">Hukum Coulomb</label>
+                    <input type="checkbox" id="vectorForces2">
+                    <label for="vectorForces3">Hukum Coulomb</label>
+                    <input type="checkbox" id="vectorForces3">
+                </form>
+
+                <form class="simulation-section" id="simulationController">
+                    <button class="control-button" id="resetSimulation">Reset</button>
+                </form>
+            </section>
+
+            <!--hasil perhitungan-->
+            <section class="big-box-section" id="results">
+                <h2 class="title" id="results-title">Hasil Perhitungan</h2>
+                <ul id="result-list">
+                    <li class="card" id="coulomb force">Hukum Coulomb: </li>
+                </ul>
+            </section>
+
+            <section class="big-box-section" id="history">
+                <h2 class="title" id="history-title">History Aksi</h2>
+                <section class="small-box-section" id="history-control">
+                    <button class="control-button" id="undoAction">Undo</button>
+                    <button class="control-button" id="redoAction">Redo</button>
+                </section>
+                <section class="small-box-section" id="history-list">
+                    <ul id="historyList"></ul>
+                </section>
+            </section>
+
         </section>
 
-        <!-- Sidebar untuk pengaturan, kontrol, dan history -->
-        <aside class="sidebar">
-            <h2 class="sidebar-title">Pengaturan Simulasi</h2>
-            <form class="simulation-settings">
-                <label for="chargeValue">Muatan (Coulomb):</label>
-                <input type="number" id="chargeValue" class="input-field" step="0.1" placeholder="Masukkan nilai">
-                
-                <label for="fieldStrength">Kekuatan Medan Listrik:</label>
-                <input type="number" id="fieldStrength" class="input-field" step="0.1" placeholder="Masukkan nilai">
-                
-                <label for="magneticFieldStrength">Kekuatan Medan Magnet:</label>
-                <input type="number" id="magneticFieldStrength" class="input-field" step="0.1" placeholder="Masukkan nilai">
-                
-                <button type="submit" class="submit-button">Simpan Pengaturan</button>
-            </form>
+        <!--ini footer-->
+        <footer class="big-box-section">
+            <p> &copy; Ananda Farhan Raihandra-18222084 <br> Sistem dan Teknologi Informasi</p>
+        </footer>
+    </aside>
 
-            <!-- Kontrol simulasi -->
-            <div class="controls">
-                <h3 class="controls-title">Kontrol Simulasi</h3>
-                <button class="control-button" id="pauseSimulation">Jeda Simulasi</button>
-                <button class="control-button" id="resetSimulation">Reset</button>
-                <button class="control-button" id="undoAction">Undo</button>
-                <button class="control-button" id="redoAction">Redo</button>
-            </div>
-
-            <!-- History Section -->
-            <div class="history-section">
-                <h3 class="history-title">History Aksi</h3>
-                <ul id="historyList" class="history-list"></ul>
-            </div>
-        </aside>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; Ananda Farhan Raihandra</p>
-    </footer>
-
-    <script src="script.js"></script> <!-- Koneksi ke file JavaScript -->
+    <section class="simulation-section" id="simulation-canvas-section">
+        <canvas class="simulation-canvas"></canva>
+    </section>
+    <script src="script.js"></script>
 </body>
 </html>
